@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conecta RH - Conectamos talentos às empresas certas. Encontre oportunidades ou contrate profissionais qualificados.">
+  <title>Conecta RH — Conectando Talentos e Oportunidades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --blue: #0071D6;
+  --blue-dark: #0058B3;
+  --blue-light: #E8F2FC;
+  --blue-soft: #F0F7FF;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.12), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: rgba(255,255,255,0.85);
+  background: linear-gradient(160deg, #001E3C 0%, #003A6B 40%, #004D8C 70%, #002855 100%);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section-title { font-size: 2.75rem; font-weight: 900; color: var(--white); margin-bottom: 16px; line-height: 1.15; letter-spacing: -0.03em; }
+.section-subtitle { font-size: 1.15rem; color: rgba(255,255,255,0.55); max-width: 580px; margin: 0 auto 56px; line-height: 1.7; }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 30px; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem;
+  border: none; cursor: pointer; transition: all var(--transition); white-space: nowrap;
+  font-family: inherit; position: relative; overflow: hidden;
+}
+.btn::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%); opacity: 0; transition: var(--transition); }
+.btn:hover::after { opacity: 1; }
+.btn-primary { background: linear-gradient(135deg, var(--blue) 0%, #0080E6 100%); color: var(--white); box-shadow: 0 4px 20px rgba(0,113,214,0.35); }
+.btn-primary:hover { box-shadow: 0 8px 30px rgba(0,113,214,0.5); transform: translateY(-3px); }
+.btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+.header .btn-outline { color: white; border-color: rgba(255,255,255,0.4); }
+.header .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; color: white; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+.btn-outline:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,113,214,0.3); }
+.btn-white { background: var(--white); color: var(--blue); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.btn-white:hover { background: var(--gray-100); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.btn-lg { padding: 18px 36px; font-size: 1.05rem; border-radius: var(--radius-lg); }
+.btn-sm { padding: 10px 22px; font-size: 0.875rem; border-radius: var(--radius-sm); }
+
+.announcement-bar { background: var(--blue); color: white; padding: 8px 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; overflow: hidden; white-space: nowrap; position: fixed; top: 0; left: 0; right: 0; z-index: 1002; }
+.announcement-bar .container { display: flex; gap: 0; animation: marquee 20s linear infinite; width: max-content; }
+.announcement-separator { opacity: 0.3; margin: 0 24px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.header { position: fixed; top: 34px; left: 0; right: 0; z-index: 1000; background: linear-gradient(180deg, rgba(0,20,50,0.95) 0%, rgba(0,40,80,0.98) 100%); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(255,255,255,0.08); transition: var(--transition); }
+.header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.25); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+.logo { display: flex; align-items: center; gap: 12px; font-size: 1.4rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+.logo-img { height: 70px; width: auto; object-fit: contain; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { padding: 10px 18px; border-radius: var(--radius); color: rgba(255,255,255,0.7); font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+.nav a:hover, .nav a.active { color: #fff; background: rgba(255,255,255,0.1); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2.5px; background: var(--white); border-radius: 4px; transition: var(--transition); }
+
+.mobile-nav { display: none; position: fixed; top: 110px; left: 0; right: 0; background: linear-gradient(180deg, rgba(0,20,50,0.98), rgba(0,40,80,1)); padding: 20px 24px 30px; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.mobile-nav.active { display: flex; flex-direction: column; gap: 4px; }
+.mobile-nav a { padding: 14px 18px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-weight: 500; font-size: 1rem; transition: var(--transition-fast); }
+.mobile-nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.mobile-nav-actions { display: flex; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+.mobile-nav-actions .btn { flex: 1; }
+
+.hero { padding: 180px 0 100px; min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+.hero-glow { position: absolute; border-radius: 50%; filter: blur(100px); }
+.hero-glow-1 { top: -20%; right: -10%; width: 500px; height: 500px; background: rgba(0,113,214,0.2); animation: glowMove 15s ease-in-out infinite; }
+.hero-glow-2 { bottom: 20%; left: 10%; width: 400px; height: 400px; background: rgba(0,113,214,0.15); animation: glowMove 10s ease-in-out infinite reverse; }
+@keyframes glowMove { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(30px, -20px); } }
+.hero-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2; }
+.hero-content { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 20px; background: rgba(0,113,214,0.15); border: 1px solid rgba(0,113,214,0.3); border-radius: var(--radius-full); color: #4DA6FF; font-size: 0.8rem; font-weight: 600; margin-bottom: 28px; letter-spacing: 0.05em; text-transform: uppercase; }
+.hero-badge-dot { width: 6px; height: 6px; background: #4DA6FF; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--white); margin-bottom: 24px; line-height: 1.1; letter-spacing: -0.03em; }
+.hero h1 .highlight { background: linear-gradient(135deg, #4DA6FF 0%, var(--blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-description { font-size: 1.15rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 40px; max-width: 580px; margin-left: auto; margin-right: auto; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 56px; }
+
+.paths-section { background: rgba(0,0,0,0.15); }
+.paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 800px; margin: 0 auto; }
+.path-card { position: relative; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-xl); padding: 48px 36px; text-align: center; transition: var(--transition); overflow: hidden; }
+.path-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), #4DA6FF); opacity: 0; transition: var(--transition); }
+.path-card:hover { transform: translateY(-6px); border-color: rgba(0,113,214,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.path-card:hover::before { opacity: 1; }
+.path-card-icon { width: 68px; height: 68px; background: linear-gradient(135deg, rgba(0,113,214,0.2), rgba(0,113,214,0.05)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 28px; transition: var(--transition); color: var(--blue); }
+.path-card:hover .path-card-icon { background: linear-gradient(135deg, rgba(0,113,214,0.3), rgba(0,113,214,0.1)); transform: scale(1.1); }
+.path-card h3 { font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 12px; }
+.path-card p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 28px; }
+
+.jobs-section { background: rgba(0,0,0,0.1); }
+.search-bar { display: flex; gap: 12px; max-width: 600px; margin: 0 auto 32px; }
+.search-bar input { flex: 1; padding: 14px 20px; border: 2px solid rgba(255,255,255,0.1); border-radius: var(--radius); background: rgba(255,255,255,0.05); color: var(--white); font-size: 0.95rem; font-family: inherit; }
+.search-bar input::placeholder { color: rgba(255,255,255,0.3); }
+.search-bar input:focus { outline: none; border-color: var(--blue); }
+.filters-bar { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px; }
+.filter-select { padding: 10px 16px; border: 2px solid rgba(255,255,255,0.1); border-radius: var(--radius); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.7); font-size: 0.85rem; font-family: inherit; cursor: pointer; }
+.filter-select option { background: #1a2a40; color: white; }
+.jobs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; margin-bottom: 48px; }
+.job-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 28px; transition: var(--transition); }
+.job-card:hover { transform: translateY(-4px); border-color: rgba(0,113,214,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.job-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.job-card-company { display: flex; align-items: center; gap: 12px; }
+.job-card-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, rgba(0,113,214,0.3), rgba(0,113,214,0.1)); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue); font-size: 0.9rem; flex-shrink: 0; }
+.job-card-company-name { font-weight: 600; color: rgba(255,255,255,0.8); font-size: 0.9rem; }
+.job-card-badge { padding: 6px 14px; background: rgba(0,113,214,0.15); color: var(--blue); border-radius: var(--radius-full); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; letter-spacing: 0.02em; }
+.job-card-title { font-size: 1.15rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.job-card-meta { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 14px; }
+.job-card-meta-item { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.job-card-meta-item i { font-size: 0.8rem; color: var(--blue); }
+.job-card-description { font-size: 0.9rem; color: rgba(255,255,255,0.4); line-height: 1.6; margin-bottom: 20px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.job-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+.job-card-salary { font-weight: 700; color: var(--blue); font-size: 0.9rem; }
+
+.timeline { position: relative; max-width: 700px; margin: 0 auto; padding: 40px 0; }
+.timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--blue), rgba(0,113,214,0.1)); transform: translateX(-50%); border-radius: 2px; }
+.timeline-item { display: flex; align-items: center; margin-bottom: 60px; position: relative; }
+.timeline-item:nth-child(odd) { flex-direction: row-reverse; }
+.timeline-item:nth-child(odd) .timeline-content { text-align: right; padding-right: 60px; padding-left: 0; width: calc(50% - 26px); }
+.timeline-item:nth-child(even) .timeline-content { padding-left: 60px; width: calc(50% - 26px); }
+.timeline-content h3 { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.timeline-content p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+.timeline-number { position: absolute; left: 50%; transform: translateX(-50%); width: 52px; height: 52px; background: linear-gradient(135deg, var(--blue) 0%, #0080E6 100%); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; z-index: 1; box-shadow: 0 0 0 6px rgba(0,30,60,1), 0 0 0 9px var(--blue); }
+
+.candidates-section { background: rgba(0,0,0,0.15); }
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
+.benefit-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 36px 28px; text-align: center; transition: var(--transition); }
+.benefit-card:hover { transform: translateY(-4px); border-color: rgba(0,113,214,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.benefit-card-icon { width: 60px; height: 60px; background: rgba(0,113,214,0.15); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--blue); margin: 0 auto 20px; }
+.benefit-card h4 { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.benefit-card p { font-size: 0.9rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+.about-section { background: rgba(0,0,0,0.1); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.about-image { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, rgba(0,113,214,0.2), rgba(0,113,214,0.05)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+.about-text h2 { font-size: 2.2rem; font-weight: 900; color: var(--white); margin-bottom: 20px; line-height: 1.2; letter-spacing: -0.02em; }
+.about-text p { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 16px; }
+
+.team-section { background: rgba(0,0,0,0.05); }
+.team-card { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 48px; transition: var(--transition); }
+.team-card:hover { border-color: rgba(0,113,214,0.3); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.team-avatar { width: 280px; aspect-ratio: 1; background: linear-gradient(135deg, rgba(0,113,214,0.25), rgba(0,113,214,0.05)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); }
+.team-avatar i { font-size: 5rem; color: var(--blue); }
+.team-info h3 { font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+.team-role { font-size: 1rem; font-weight: 600; color: var(--blue); margin-bottom: 20px; }
+.team-bio { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 24px; }
+.team-creds { display: flex; flex-wrap: wrap; gap: 10px; }
+.team-cred { padding: 8px 16px; background: rgba(0,113,214,0.1); border: 1px solid rgba(0,113,214,0.2); border-radius: var(--radius-full); font-size: 0.78rem; color: rgba(255,255,255,0.7); font-weight: 500; }
+
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+.testimonial-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 32px; transition: var(--transition); }
+.testimonial-card:hover { transform: translateY(-4px); border-color: rgba(0,113,214,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.testimonial-stars { display: flex; gap: 3px; margin-bottom: 16px; color: #FBBF24; font-size: 0.9rem; }
+.testimonial-text { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+.testimonial-author { display: flex; align-items: center; gap: 14px; }
+.testimonial-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, rgba(0,113,214,0.3), rgba(0,113,214,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue); font-size: 0.85rem; flex-shrink: 0; }
+.testimonial-name { font-weight: 700; color: var(--white); font-size: 0.9rem; }
+.testimonial-role { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+.faq-list { max-width: 700px; margin: 0 auto; }
+.faq-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); margin-bottom: 12px; transition: var(--transition); }
+.faq-item.active { border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,113,214,0.15); }
+.faq-question { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; cursor: pointer; transition: var(--transition); }
+.faq-question:hover { background: rgba(0,113,214,0.05); }
+.faq-question h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+.faq-question .faq-icon { width: 36px; height: 36px; background: rgba(0,113,214,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: var(--transition); color: var(--blue); font-size: 0.8rem; }
+.faq-item.active .faq-question .faq-icon { transform: rotate(180deg); }
+.faq-answer { padding: 0 24px 20px; display: none; }
+.faq-item.active .faq-answer { display: block; }
+.faq-answer p { font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+.cta-section { padding: 80px 0; text-align: center; background: linear-gradient(135deg, var(--blue) 0%, #0058B3 100%); position: relative; overflow: hidden; }
+.cta-section h2 { font-size: 2.2rem; font-weight: 900; color: var(--white); margin-bottom: 16px; }
+.cta-section p { font-size: 1.1rem; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+.footer { background: #000E1A; color: var(--white); padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,0.05); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer-brand p { color: rgba(255,255,255,0.4); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); transition: var(--transition); }
+.footer-social a:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); }
+.footer-col h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
+.footer-col a { display: block; color: rgba(255,255,255,0.4); font-size: 0.9rem; padding: 6px 0; transition: var(--transition-fast); }
+.footer-col a:hover { color: var(--blue); padding-left: 6px; }
+.footer-contact-item { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.4); font-size: 0.9rem; padding: 8px 0; }
+.footer-contact-item i { color: var(--blue); width: 18px; text-align: center; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { color: rgba(255,255,255,0.3); }
+.footer-bottom-links a:hover { color: var(--blue); }
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1024px) {
+  .hero h1 { font-size: 2.8rem; }
+  .paths-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-image { max-width: 500px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  .nav, .header-actions { display: none !important; }
+  .hamburger { display: flex; }
+  .header-inner { height: 60px; }
+  .logo-img { height: 45px; }
+  .section { padding: 60px 0; }
+  .section-title { font-size: 1.8rem; }
+  .section-subtitle { font-size: 1rem; margin-bottom: 40px; }
+  .hero { padding: 130px 0 60px; min-height: auto; }
+  .hero h1 { font-size: 2rem; line-height: 1.1; }
+  .hero-description { font-size: 0.95rem; margin-bottom: 28px; }
+  .hero-cta { flex-direction: column; align-items: center; gap: 12px; margin-bottom: 36px; }
+  .hero-cta .btn { width: 100%; max-width: 280px; padding: 14px 20px; }
+  .jobs-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .search-bar { flex-direction: column; }
+  .filters-bar { flex-direction: column; align-items: stretch; }
+  .timeline::before { left: 24px; }
+  .timeline-item, .timeline-item:nth-child(odd) { flex-direction: row; }
+  .timeline-item:nth-child(odd) .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content { text-align: left; padding-left: 70px; padding-right: 0; }
+  .timeline-number { left: 24px; }
+  .cta-section h2 { font-size: 1.5rem; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <div class="container">
+      <span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span>
+    </div>
+  </div>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="logo.png" alt="Conecta RH" class="logo-img">
+      </a>
+      <nav class="nav">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#candidatos">Para Candidatos</a>
+        <a href="#empresas">Para Empresas</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <a href="vagas.html" class="btn btn-outline btn-sm">Encontrar Vaga</a>
+        <a href="contratar.html" class="btn btn-primary btn-sm">Quero Contratar</a>
+        <a href="funcionarios.html" class="btn btn-sm" style="background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-user-lock"></i></a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#inicio" onclick="closeMobile()">Início</a>
+    <a href="#candidatos" onclick="closeMobile()">Para Candidatos</a>
+    <a href="#empresas" onclick="closeMobile()">Para Empresas</a>
+    <a href="#sobre" onclick="closeMobile()">Sobre Nós</a>
+    <a href="#contato" onclick="closeMobile()">Contato</a>
+    <div class="mobile-nav-actions">
+      <a href="vagas.html" class="btn btn-outline" onclick="closeMobile()">Encontrar Vaga</a>
+      <a href="contratar.html" class="btn btn-primary" onclick="closeMobile()">Quero Contratar</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge fade-in">
+          <span class="hero-badge-dot"></span>
+          Plataforma de recrutamento
+        </div>
+        <h1 class="fade-in">Conectamos <span class="highlight">talentos</span> às empresas certas.</h1>
+        <p class="hero-description fade-in">Encontre novas oportunidades para sua carreira ou contrate profissionais qualificados que vão impulsionar o crescimento da sua empresa.</p>
+        <div class="hero-cta fade-in">
+          <a href="vagas.html" class="btn btn-primary btn-lg"><i class="fas fa-search"></i> Encontrar vaga</a>
+          <a href="contratar.html" class="btn btn-outline btn-lg"><i class="fas fa-building"></i> Quero contratar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOIS CAMINHOS -->
+  <section class="section paths-section" id="caminhos">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">O que você está procurando?</h2>
+      <p class="section-subtitle text-center fade-in">Escolha o caminho ideal para você.</p>
+      <div class="paths-grid">
+        <div class="path-card fade-in">
+          <div class="path-card-icon"><i class="fas fa-user-tie"></i></div>
+          <h3>Estou procurando emprego</h3>
+          <p>Encontre oportunidades que combinam com seu perfil, experiência e objetivos profissionais.</p>
+          <a href="vagas.html" class="btn btn-primary">Encontrar vagas <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="path-card fade-in">
+          <div class="path-card-icon"><i class="fas fa-building"></i></div>
+          <h3>Preciso contratar</h3>
+          <p>Conte com a Conecta RH para encontrar profissionais qualificados para sua empresa.</p>
+          <a href="contratar.html" class="btn btn-primary">Quero contratar <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VAGAS EM DESTAQUE -->
+  <section class="section jobs-section" id="vagas">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Encontre sua próxima oportunidade</h2>
+      <p class="section-subtitle text-center fade-in">Confira algumas das oportunidades disponíveis através da Conecta RH.</p>
+      <div class="text-center fade-in">
+        <a href="vagas.html" class="btn btn-outline btn-lg">Ver todas as vagas <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA EMPRESAS -->
+  <section class="section" id="empresas">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Sua próxima contratação pode estar aqui.</h2>
+      <p class="section-subtitle text-center fade-in">Deixe a Conecta RH cuidar da busca pelos profissionais certos para sua empresa.</p>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-user-check"></i></div>
+          <h4>Encontre profissionais qualificados</h4>
+          <p>Tenha acesso a candidatos alinhados às necessidades da sua empresa.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-clock"></i></div>
+          <h4>Economize tempo</h4>
+          <p>Deixe o processo de recrutamento mais eficiente.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-handshake"></i></div>
+          <h4>Contrate melhor</h4>
+          <p>Encontre profissionais compatíveis com o perfil da vaga e da sua empresa.</p>
+        </div>
+      </div>
+      <div class="text-center fade-in" style="margin-top: 40px;">
+        <a href="contratar.html" class="btn btn-primary btn-lg">Quero contratar com a Conecta RH <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section" id="como-funciona">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Conectar pessoas e empresas pode ser simples.</h2>
+      <p class="section-subtitle text-center fade-in">Um processo rápido e eficiente para todos.</p>
+      <div class="timeline">
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Você apresenta sua necessidade</h3>
+            <p>Candidato encontra uma vaga ou empresa informa que precisa contratar.</p>
+          </div>
+          <div class="timeline-number">01</div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Nós fazemos a conexão</h3>
+            <p>A Conecta RH aproxima profissionais e empresas compatíveis.</p>
+          </div>
+          <div class="timeline-number">02</div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>O processo avança</h3>
+            <p>Candidatos participam das etapas de seleção.</p>
+          </div>
+          <div class="timeline-number">03</div>
+        </div>
+        <div class="timeline-item fade-in">
+          <div class="timeline-content">
+            <h3>Uma nova oportunidade começa</h3>
+            <p>Profissional encontra uma nova carreira e a empresa encontra um novo talento.</p>
+          </div>
+          <div class="timeline-number">04</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA CANDIDATOS -->
+  <section class="section candidates-section" id="candidatos">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Seu próximo emprego pode estar mais perto do que você imagina.</h2>
+      <p class="section-subtitle text-center fade-in">Cadastre seu currículo, acompanhe oportunidades e encontre vagas que tenham relação com seu perfil profissional.</p>
+      <div class="benefits-grid">
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-fire"></i></div>
+          <h4>Novas oportunidades</h4>
+          <p>Vagas novas todos os dias para diferentes perfis e experiências.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-layer-group"></i></div>
+          <h4>Vagas de diferentes áreas</h4>
+          <p>Tecnologia, marketing, financeiro, operações e muito mais.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-bolt"></i></div>
+          <h4>Processo simples</h4>
+          <p>Cadastre seu currículo e comece a se candidatar em poucos minutos.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-users"></i></div>
+          <h4>Conexão com empresas</h4>
+          <p>Empresas de diversos portes e segmentos buscam talentos.</p>
+        </div>
+        <div class="benefit-card fade-in">
+          <div class="benefit-card-icon"><i class="fas fa-globe-americas"></i></div>
+          <h4>Oportunidades em diferentes localidades</h4>
+          <p>Vagas presenciais, híbridas e remotas em todo o Brasil.</p>
+        </div>
+      </div>
+      <div class="text-center fade-in" style="margin-top: 40px;">
+        <a href="vagas.html" class="btn btn-primary btn-lg">Quero encontrar uma vaga <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section about-section" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image fade-in"><i class="fas fa-building" style="font-size: 5rem; color: var(--blue);"></i></div>
+        <div class="about-text fade-in">
+          <h2>Quem somos</h2>
+          <p>A Conecta RH é uma consultoria empresarial em Gestão de Pessoas e apoio a empresas nos processos de recrutamento e seleção, na implementação de projetos de RH, diagnóstico organizacional e treinamentos.</p>
+          <p>Auxiliamos no crescimento e desenvolvimento das empresas e das pessoas através da capacitação e desenvolvimento estratégico do negócio alinhado a gestão de pessoas, transformação cultural e diversidade.</p>
+          <p>Nosso objetivo é conectar empresas e candidatos no processo de recrutamento e seleção, auxiliando as empresas a encontrar o melhor candidato para sua vaga.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section class="section team-section" id="equipe">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Nossa consultora</h2>
+      <p class="section-subtitle text-center fade-in">Conheça a profissional que lidera a Conecta RH.</p>
+      <div class="team-card fade-in">
+        <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+        <div class="team-info">
+          <h3>Eliana Claus</h3>
+          <div class="team-role">Consultora Líder</div>
+          <p class="team-bio">20 anos de experiência em gestão de pessoas e desenvolvimento de pessoas. Já atuou em grandes empresas de vários segmentos como Facilities, Alimentação coletiva, Agronegócio, Engenharia e Tecnologia.</p>
+          <div class="team-creds">
+            <span class="team-cred">Pós Graduada em Gestão de Pessoas — UEMG</span>
+            <span class="team-cred">Graduada em Psicologia — UFMG</span>
+            <span class="team-cred">Professional Coaching Practitioner — ABRACOACHING</span>
+            <span class="team-cred">Certificada em Management 3.0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Quem se conecta com a gente, recomenda.</h2>
+      <p class="section-subtitle text-center fade-in">Veja o que dizem quem já encontrou oportunidades ou profissionais conosco.</p>
+      <div class="testimonials-grid" id="testimonialsGrid"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title text-center fade-in">Perguntas frequentes</h2>
+      <p class="section-subtitle text-center fade-in">Tire suas dúvidas sobre nossos serviços.</p>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="fade-in">Vamos encontrar a conexão certa para você?</h2>
+      <p class="fade-in">Se você está procurando uma oportunidade ou precisa encontrar novos talentos para sua empresa, a Conecta RH está pronta para ajudar.</p>
+      <div class="cta-buttons fade-in">
+        <a href="vagas.html" class="btn btn-white btn-lg">Encontrar uma vaga</a>
+        <a href="contratar.html" class="btn btn-outline btn-lg" style="border-color: rgba(255,255,255,0.4); color: #fff;">Quero contratar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contato">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="logo.png" alt="Conecta RH" class="logo-img">
+          </a>
+          <p>Conectando talentos, empresas e oportunidades.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="#sobre">Sobre nós</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="footer-col">
+          <h4>Candidatos</h4>
+          <a href="vagas.html">Encontrar vagas</a>
+          <a href="vagas.html">Cadastrar currículo</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresas</h4>
+          <a href="contratar.html">Quero contratar</a>
+          <a href="contratar.html">Solicitar recrutamento</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <div class="footer-contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <span>+55 31 7578-7604</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>contato@conectarh.com.br</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fab fa-instagram"></i>
+            <span>@conectarh</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Belo Horizonte - MG</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Conecta RH. Todos os direitos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      });
+    }
+
+    function closeMobile() {
+      if (hamburger && mobileNav) {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item.active').forEach(i => i.classList.remove('active'));
+      if (!wasActive) { item.classList.add('active'); }
+    }
+
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    let allJobs = [];
+
+    async function loadIndexData() {
+      try {
+        const [jobs, testimonials, faq] = await Promise.all([
+          db.getJobs({ status: 'active', featured: true }),
+          db.getTestimonials(),
+          db.getFaqItems()
+        ]);
+        allJobs = jobs;
+        renderTestimonials(testimonials);
+        renderFaq(faq);
+      } catch (err) {
+        console.error('Erro ao carregar dados:', err);
+      }
+    }
+
+    function renderTestimonials(testimonials) {
+      const grid = document.getElementById('testimonialsGrid');
+      if (!grid || !testimonials.length) return;
+      grid.innerHTML = testimonials.map(t => {
+        const initials = t.author_name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
+        const stars = '&#9733;'.repeat(t.rating) + '&#9734;'.repeat(5 - t.rating);
+        return `<div class="testimonial-card fade-in">
+          <div class="testimonial-stars">${stars}</div>
+          <p class="testimonial-text">"${t.content}"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">${initials}</div>
+            <div><div class="testimonial-name">${t.author_name}</div><div class="testimonial-role">${t.author_role || ''} ${t.author_company ? '- ' + t.author_company : ''}</div></div>
+          </div>
+        </div>`;
+      }).join('');
+      grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    function renderFaq(items) {
+      const list = document.getElementById('faqList');
+      if (!list || !items.length) return;
+      list.innerHTML = items.map(item => `
+        <div class="faq-item fade-in">
+          <div class="faq-question" onclick="toggleFaq(this)"><h4>${item.question}</h4><div class="faq-icon"><i class="fas fa-chevron-down"></i></div></div>
+          <div class="faq-answer"><p>${item.answer}</p></div>
+        </div>
+      `).join('');
+      list.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', loadIndexData);
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const headerHeight = document.querySelector('.header')?.offsetHeight || 72;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

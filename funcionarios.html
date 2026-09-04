@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Área do funcionário Conecta RH - Acesse para publicar vagas.">
+  <title>Área do Funcionário — Conecta RH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal: #7CDFCD;
+  --teal-light: #a6ebe0;
+  --teal-soft: #e8faf7;
+  --teal-glow: rgba(124, 223, 205, 0.4);
+  --blue: #0071D6;
+  --blue-dark: #0058B3;
+  --blue-light: #E8F2FC;
+  --blue-soft: #F0F7FF;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.12), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 40px rgba(124, 223, 205, 0.3);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; color: var(--gray-700); line-height: 1.6; background: var(--gray-50); overflow-x: hidden; }
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; transition: var(--transition); cursor: pointer; border: none; font-family: inherit; }
+.btn-primary { background: var(--blue); color: var(--white); }
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,113,214,0.3); }
+.btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+.btn-outline:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,113,214,0.3); }
+.btn-sm { padding: 10px 20px; font-size: 0.85rem; }
+.btn-lg { padding: 18px 36px; font-size: 1.05rem; }
+.btn-icon { width: 44px; height: 44px; padding: 0; border-radius: 50%; }
+.btn-ghost { background: transparent; color: var(--gray-500); }
+.btn-ghost:hover { background: var(--gray-100); color: var(--gray-700); }
+
+.header { position: fixed; top: 34px; left: 0; right: 0; z-index: 1000; background: linear-gradient(180deg, rgba(0,40,80,0.95) 0%, rgba(0,60,110,0.98) 100%); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(124,223,205,0.15); transition: var(--transition); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { display: flex; align-items: center; gap: 14px; font-size: 1.2rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+.logo-img { height: 56px; width: auto; object-fit: contain; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { padding: 10px 18px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+.nav a:hover, .nav a.active { color: #fff; background: rgba(255,255,255,0.12); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.header .btn-outline { color: white; border-color: rgba(255,255,255,0.4); }
+.header .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; color: white; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2.5px; background: var(--white); border-radius: 4px; transition: var(--transition); }
+
+.announcement-bar { background: var(--blue); color: white; padding: 8px 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; overflow: hidden; white-space: nowrap; position: fixed; top: 0; left: 0; right: 0; z-index: 1002; }
+.announcement-bar .container { display: flex; gap: 0; animation: marquee 20s linear infinite; width: max-content; }
+.announcement-separator { opacity: 0.3; margin: 0 24px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.login-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 140px 24px 80px; background: linear-gradient(160deg, #f0f7ff 0%, #e8faf7 30%, #f0f7ff 60%, #e8faf7 100%); position: relative; overflow: hidden; }
+.login-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,113,214,0.06) 0%, transparent 55%); border-radius: 50%; }
+.login-section::after { content: ''; position: absolute; bottom: -200px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,223,205,0.1) 0%, transparent 55%); border-radius: 50%; }
+
+.login-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; width: 100%; position: relative; z-index: 1; }
+
+.login-info { display: flex; flex-direction: column; justify-content: center; }
+.login-info h1 { font-size: 2.5rem; font-weight: 900; color: var(--gray-900); margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.1; }
+.login-info h1 span { color: var(--blue); }
+.login-info > p { font-size: 1.1rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 40px; }
+.login-features { display: flex; flex-direction: column; gap: 20px; }
+.login-feature { display: flex; align-items: flex-start; gap: 16px; }
+.login-feature-icon { width: 48px; height: 48px; background: var(--blue-soft); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--blue); flex-shrink: 0; }
+.login-feature h4 { font-size: 0.95rem; font-weight: 700; color: var(--gray-800); margin-bottom: 2px; }
+.login-feature p { font-size: 0.85rem; color: var(--gray-400); }
+
+.login-card { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: var(--radius-xl); padding: 44px; box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+.login-card h2 { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 8px; text-align: center; }
+.login-card > p { color: var(--gray-400); text-align: center; margin-bottom: 32px; font-size: 0.9rem; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 600; font-size: 0.85rem; color: var(--gray-700); margin-bottom: 8px; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 18px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-size: 0.95rem; font-family: inherit; transition: var(--transition-fast); background: var(--white); color: var(--gray-700); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(0,113,214,0.1); }
+.form-group input::placeholder { color: var(--gray-300); }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.login-divider { display: flex; align-items: center; gap: 16px; margin: 24px 0; color: var(--gray-300); font-size: 0.8rem; }
+.login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+.login-links { text-align: center; margin-top: 20px; }
+.login-links a { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
+.login-links a:hover { text-decoration: underline; }
+
+.login-footer-note { text-align: center; margin-top: 24px; padding: 16px; background: var(--teal-soft); border-radius: var(--radius); }
+.login-footer-note p { color: var(--gray-500); font-size: 0.8rem; }
+.login-footer-note i { color: var(--teal); margin-right: 6px; }
+
+.footer { background: var(--gray-900); color: var(--white); padding: 64px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-brand { }
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p { color: var(--gray-400); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: var(--transition); }
+.footer-social a:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); }
+.footer-col h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
+.footer-col a { display: block; color: var(--gray-400); font-size: 0.9rem; padding: 6px 0; transition: var(--transition-fast); }
+.footer-col a:hover { color: var(--teal); transform: translateX(4px); }
+.footer-contact-item { display: flex; align-items: center; gap: 12px; color: var(--gray-400); font-size: 0.9rem; padding: 8px 0; }
+.footer-contact-item i { color: var(--teal); width: 18px; text-align: center; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; color: var(--gray-500); font-size: 0.85rem; }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { color: var(--gray-500); }
+.footer-bottom-links a:hover { color: var(--teal); }
+
+@media (max-width: 1024px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+  .hero h1 { font-size: 3rem; }
+  .hero-description { margin: 0 auto 40px; }
+  .hero-cta { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-visual { order: -1; min-height: 380px; max-width: 380px; }
+  .hero-cards-stack { max-width: 350px; }
+  .hero-floating-badge { display: none; }
+  .paths-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-image { max-width: 500px; margin: 0 auto; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .job-detail-grid { grid-template-columns: 1fr; }
+  .job-detail-sidebar { position: static; }
+  .form-card { padding: 40px; }
+  .login-container { grid-template-columns: 1fr; }
+  .login-info > p { margin: 0 auto 40px; }
+  .login-feature { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  .nav, .header-actions { display: none !important; }
+  .hamburger { display: flex; }
+  .header-inner { height: 60px; }
+  .logo-img { height: 45px; }
+  .section { padding: 60px 0; }
+  .section-title { font-size: 1.8rem; }
+  .section-subtitle { font-size: 1rem; margin-bottom: 40px; }
+  .hero { padding: 130px 0 60px; min-height: auto; }
+  .hero-inner { gap: 30px; }
+  .hero h1 { font-size: 2rem; line-height: 1.1; }
+  .hero-description { font-size: 0.95rem; margin-bottom: 28px; }
+  .hero-cta { flex-direction: column; align-items: center; gap: 12px; margin-bottom: 36px; }
+  .hero-cta .btn { width: 100%; max-width: 280px; padding: 14px 20px; }
+  .hero-stats { flex-wrap: wrap; gap: 16px; justify-content: center; padding-top: 24px; }
+  .hero-stat { min-width: 100px; }
+  .hero-stat-number { font-size: 1.4rem; }
+  .hero-stat-label { font-size: 0.65rem; }
+  .hero-visual { min-height: 300px; max-width: 320px; }
+  .hero-cards-stack { max-width: 280px; }
+  .hero-card { padding: 18px; border-radius: var(--radius-lg); }
+  .hero-card-header { gap: 10px; margin-bottom: 12px; }
+  .hero-card-avatar { width: 36px; height: 36px; font-size: 0.7rem; }
+  .hero-card-title { font-size: 0.85rem; margin-bottom: 8px; }
+  .hero-card-tags { gap: 4px; margin-bottom: 10px; }
+  .hero-card-tag { padding: 3px 8px; font-size: 0.6rem; }
+  .hero-card-footer { padding-top: 10px; }
+  .hero-card-salary { font-size: 0.75rem; }
+  .hero-card-posted { font-size: 0.6rem; }
+  .hero-floating-badge { display: none; }
+  .hero-badge { font-size: 0.7rem; padding: 6px 14px; margin-bottom: 20px; }
+  .paths-grid { grid-template-columns: 1fr; max-width: 100%; }
+  .path-card { padding: 32px 24px; }
+  .search-bar { flex-direction: column; border-radius: var(--radius-lg); }
+  .search-bar input { padding: 14px 16px; }
+  .search-bar .btn { width: 100%; border-radius: var(--radius); }
+  .jobs-grid { grid-template-columns: 1fr; gap: 16px; }
+  .job-card { padding: 24px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-card { padding: 28px 20px; }
+  .form-card h2 { font-size: 1.3rem; }
+  .timeline::before { left: 20px; }
+  .timeline-item, .timeline-item:nth-child(odd) { flex-direction: column; text-align: left; padding-left: 50px; }
+  .timeline-content { width: 100%; margin-left: 0; }
+  .timeline-number { left: 20px; position: relative; margin-bottom: 12px; }
+  .benefits-grid { grid-template-columns: 1fr; gap: 16px; }
+  .benefit-card { padding: 28px 24px; }
+  .numbers-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .number-item h3 { font-size: 2rem; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 60px 0; }
+  .cta-section h2 { font-size: 1.6rem; }
+  .cta-section p { font-size: 1rem; }
+  .footer { padding: 48px 0 0; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-brand { grid-column: auto; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 20px 0; }
+  .footer-bottom-links { flex-direction: column; gap: 8px; }
+  .page-header { padding: 150px 0 50px; }
+  .page-header h1 { font-size: 1.8rem; }
+  .page-header p { font-size: 1rem; }
+  .recruit-hero { padding: 150px 0 60px; }
+  .recruit-hero h1 { font-size: 1.8rem; }
+  .recruit-hero p { font-size: 1rem; }
+  .filters-bar { gap: 8px; flex-direction: column; }
+  .filter-select { width: 100%; }
+  .job-detail-main { padding: 20px; }
+  .job-detail-main h3 { font-size: 1.1rem; }
+  .job-detail-sidebar { margin-top: 24px; }
+  .apply-card { padding: 24px 20px; }
+  .info-card { padding: 20px; }
+  .login-section { padding: 140px 20px 60px; }
+  .login-info h1 { font-size: 1.8rem; }
+  .login-info > p { font-size: 1rem; }
+  .login-card { padding: 28px 20px; }
+  .login-container { gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .hero { padding: 120px 0 50px; }
+  .hero h1 { font-size: 1.6rem; }
+  .hero-description { font-size: 0.85rem; margin-bottom: 24px; }
+  .hero-visual { min-height: 260px; max-width: 270px; }
+  .hero-cards-stack { max-width: 240px; }
+  .hero-stat-number { font-size: 1.2rem; }
+  .hero-stats { gap: 12px; }
+  .hero-stat { min-width: 80px; }
+  .hero-stat-label { font-size: 0.6rem; }
+  .hero-badge { font-size: 0.65rem; padding: 5px 12px; }
+  .section { padding: 48px 0; }
+  .section-title { font-size: 1.5rem; }
+  .btn-lg { padding: 14px 28px; font-size: 0.95rem; }
+  .numbers-grid { grid-template-columns: 1fr; }
+  .number-item h3 { font-size: 1.8rem; }
+  .cta-section h2 { font-size: 1.4rem; }
+  .job-card { padding: 20px; }
+  .job-card-title { font-size: 1.05rem; }
+  .form-card { padding: 24px 16px; }
+  .page-header { padding: 140px 0 40px; }
+  .page-header h1 { font-size: 1.5rem; }
+  .recruit-hero { padding: 140px 0 50px; }
+  .recruit-hero h1 { font-size: 1.5rem; }
+  .login-info h1 { font-size: 1.5rem; }
+  .login-card { padding: 24px 16px; }
+  .footer { padding: 40px 0 0; }
+  .footer-col h4 { font-size: 0.85rem; margin-bottom: 12px; }
+  .footer-col a { font-size: 0.8rem; }
+  .footer-contact-item { font-size: 0.8rem; }
+  .footer-bottom { font-size: 0.75rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <div class="container">
+      <span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span>
+    </div>
+  </div>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="index.html#candidatos">Para Candidatos</a>
+        <a href="index.html#empresas">Para Empresas</a>
+        <a href="index.html#sobre">Sobre Nós</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <a href="vagas.html" class="btn btn-outline btn-sm">Encontrar Vaga</a>
+        <a href="contratar.html" class="btn btn-primary btn-sm">Quero Contratar</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-info">
+        <h1>Área do <span>Funcionário</span></h1>
+        <p>Acesse sua conta para gerenciar e publicar vagas na plataforma Conecta RH.</p>
+        <div class="login-features">
+          <div class="login-feature">
+            <div class="login-feature-icon"><i class="fas fa-plus-circle"></i></div>
+            <div>
+              <h4>Publicar vagas</h4>
+              <p>Cadastre novas vagas e alcance milhares de candidatos qualificados.</p>
+            </div>
+          </div>
+          <div class="login-feature">
+            <div class="login-feature-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <h4>Acompanhar processos</h4>
+              <p>Visualize candidaturas e gerencie o funil de recrutamento.</p>
+            </div>
+          </div>
+          <div class="login-feature">
+            <div class="login-feature-icon"><i class="fas fa-cogs"></i></div>
+            <div>
+              <h4>Gerenciar vagas</h4>
+              <p>Edite, pause ou encerre vagas publicadas a qualquer momento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-card">
+        <h2>Entrar na sua conta</h2>
+        <p>Insira suas credenciais para acessar o painel.</p>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="email">E-mail corporativo</label>
+            <input type="email" id="email" placeholder="seunome@conectarh.com.br" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--gray-500); cursor: pointer;">
+              <input type="checkbox" style="width: auto; accent-color: var(--blue);"> Lembrar de mim
+            </label>
+            <a href="#" style="font-size: 0.85rem; color: var(--blue); font-weight: 600;">Esqueci a senha</a>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <i class="fas fa-sign-in-alt"></i> Entrar
+          </button>
+        </form>
+        <div class="login-divider">ou</div>
+        <div class="login-links">
+          <p style="color: var(--gray-400); font-size: 0.9rem;">Não tem uma conta? <a href="cadastro.html">Criar conta</a></p>
+        </div>
+        <div class="login-footer-note">
+          <p><i class="fas fa-shield-alt"></i> Área exclusiva para funcionários e parceiros Conecta RH.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a>
+          <p>Conectando talentos, empresas e oportunidades.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="index.html#sobre">Sobre nós</a>
+          <a href="index.html#contato">Contato</a>
+        </div>
+        <div class="footer-col">
+          <h4>Candidatos</h4>
+          <a href="vagas.html">Encontrar vagas</a>
+          <a href="#">Cadastrar currículo</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresas</h4>
+          <a href="contratar.html">Quero contratar</a>
+          <a href="contratar.html">Solicitar recrutamento</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span>+55 31 7578-7604</span></div>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contato@conectarh.com.br</span></div>
+          <div class="footer-contact-item"><i class="fab fa-instagram"></i><span>@conectarh</span></div>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Belo Horizonte - MG</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Conecta RH. Todos os direitos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+<script>
+async function handleLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const btn = e.target.querySelector('button[type="submit"]');
+  const originalText = btn.innerHTML;
+  
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Entrando...';
+  btn.disabled = true;
+
+  try {
+    const { user } = await db.login(email, password);
+    const profile = await db.getUserProfile(user.id);
+    if (profile.status !== 'approved') {
+      await db.logout();
+      btn.innerHTML = '<i class="fas fa-times"></i> Conta aguardando aprovação';
+      btn.style.background = '#F59E0B';
+      setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      return;
+    }
+    btn.innerHTML = '<i class="fas fa-check"></i> Login realizado!';
+    btn.style.background = '#059669';
+    setTimeout(() => { window.location.href = 'painel.html'; }, 1500);
+  } catch (err) {
+    console.error('Erro ao fazer login:', err);
+    btn.innerHTML = '<i class="fas fa-times"></i> E-mail ou senha inválidos';
+    btn.style.background = '#DC2626';
+    setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+  }
+}
+
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('active');
+});
+
+function closeMobile() {
+  hamburger.classList.remove('active');
+  mobileNav.classList.remove('active');
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

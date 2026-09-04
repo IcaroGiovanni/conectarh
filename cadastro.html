@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crie sua conta de funcionário Conecta RH.">
+  <title>Cadastro — Conecta RH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal: #7CDFCD;
+  --teal-light: #a6ebe0;
+  --teal-soft: #e8faf7;
+  --teal-glow: rgba(124, 223, 205, 0.4);
+  --blue: #0071D6;
+  --blue-dark: #0058B3;
+  --blue-light: #E8F2FC;
+  --blue-soft: #F0F7FF;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 30px -5px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.03);
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.12), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 40px rgba(124, 223, 205, 0.3);
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { overflow-x: hidden; }
+body { font-family: 'Inter', sans-serif; color: var(--gray-700); line-height: 1.6; background: var(--gray-50); overflow-x: hidden; }
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 28px; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; transition: var(--transition); cursor: pointer; border: none; font-family: inherit; }
+.btn-primary { background: var(--blue); color: var(--white); }
+.btn-primary:hover { background: var(--blue-dark); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,113,214,0.3); }
+.btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
+.btn-outline:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,113,214,0.3); }
+.btn-sm { padding: 10px 20px; font-size: 0.85rem; }
+.btn-lg { padding: 18px 36px; font-size: 1.05rem; }
+.btn-ghost { background: transparent; color: var(--gray-500); }
+.btn-ghost:hover { background: var(--gray-100); color: var(--gray-700); }
+
+.header { position: fixed; top: 34px; left: 0; right: 0; z-index: 1000; background: linear-gradient(180deg, rgba(0,40,80,0.95) 0%, rgba(0,60,110,0.98) 100%); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid rgba(124,223,205,0.15); transition: var(--transition); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.logo { display: flex; align-items: center; gap: 14px; font-size: 1.2rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+.logo-img { height: 56px; width: auto; object-fit: contain; }
+.nav { display: flex; align-items: center; gap: 4px; }
+.nav a { padding: 10px 18px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-weight: 500; font-size: 0.9rem; transition: var(--transition); }
+.nav a:hover, .nav a.active { color: #fff; background: rgba(255,255,255,0.12); }
+.header-actions { display: flex; align-items: center; gap: 12px; }
+.header .btn-outline { color: white; border-color: rgba(255,255,255,0.4); }
+.header .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; color: white; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+.hamburger span { width: 24px; height: 2.5px; background: var(--white); border-radius: 4px; transition: var(--transition); }
+
+.announcement-bar { background: var(--blue); color: white; padding: 8px 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; overflow: hidden; white-space: nowrap; position: fixed; top: 0; left: 0; right: 0; z-index: 1002; }
+.announcement-bar .container { display: flex; gap: 0; animation: marquee 20s linear infinite; width: max-content; }
+.announcement-separator { opacity: 0.3; margin: 0 24px; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.login-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 140px 24px 80px; background: linear-gradient(160deg, #f0f7ff 0%, #e8faf7 30%, #f0f7ff 60%, #e8faf7 100%); position: relative; overflow: hidden; }
+.login-section::before { content: ''; position: absolute; top: -300px; right: -200px; width: 700px; height: 700px; background: radial-gradient(circle, rgba(0,113,214,0.06) 0%, transparent 55%); border-radius: 50%; }
+.login-section::after { content: ''; position: absolute; bottom: -200px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,223,205,0.1) 0%, transparent 55%); border-radius: 50%; }
+
+.login-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1000px; width: 100%; position: relative; z-index: 1; }
+
+.login-info { display: flex; flex-direction: column; justify-content: center; }
+.login-info h1 { font-size: 2.5rem; font-weight: 900; color: var(--gray-900); margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.1; }
+.login-info h1 span { color: var(--blue); }
+.login-info > p { font-size: 1.1rem; color: var(--gray-500); line-height: 1.7; margin-bottom: 40px; }
+.login-features { display: flex; flex-direction: column; gap: 20px; }
+.login-feature { display: flex; align-items: flex-start; gap: 16px; }
+.login-feature-icon { width: 48px; height: 48px; background: var(--blue-soft); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--blue); flex-shrink: 0; }
+.login-feature h4 { font-size: 0.95rem; font-weight: 700; color: var(--gray-800); margin-bottom: 2px; }
+.login-feature p { font-size: 0.85rem; color: var(--gray-400); }
+
+.login-card { background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: var(--radius-xl); padding: 44px; box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+.login-card h2 { font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 8px; text-align: center; }
+.login-card > p { color: var(--gray-400); text-align: center; margin-bottom: 32px; font-size: 0.9rem; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 600; font-size: 0.85rem; color: var(--gray-700); margin-bottom: 8px; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px 18px; border: 2px solid var(--gray-200); border-radius: var(--radius); font-size: 0.95rem; font-family: inherit; transition: var(--transition-fast); background: var(--white); color: var(--gray-700); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 4px rgba(0,113,214,0.1); }
+.form-group input::placeholder { color: var(--gray-300); }
+
+.login-divider { display: flex; align-items: center; gap: 16px; margin: 24px 0; color: var(--gray-300); font-size: 0.8rem; }
+.login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+.login-links { text-align: center; margin-top: 20px; }
+.login-links a { color: var(--blue); font-weight: 600; font-size: 0.9rem; }
+.login-links a:hover { text-decoration: underline; }
+
+.login-footer-note { text-align: center; margin-top: 24px; padding: 16px; background: var(--teal-soft); border-radius: var(--radius); }
+.login-footer-note p { color: var(--gray-500); font-size: 0.8rem; }
+.login-footer-note i { color: var(--teal); margin-right: 6px; }
+
+.password-hint { font-size: 0.8rem; color: var(--gray-400); margin-top: 6px; }
+
+.footer { background: var(--gray-900); color: var(--white); padding: 64px 0 0; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-brand { }
+.footer-brand .logo { margin-bottom: 16px; }
+.footer-brand p { color: var(--gray-400); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 12px; }
+.footer-social a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: var(--transition); }
+.footer-social a:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); }
+.footer-col h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
+.footer-col a { display: block; color: var(--gray-400); font-size: 0.9rem; padding: 6px 0; transition: var(--transition-fast); }
+.footer-col a:hover { color: var(--teal); transform: translateX(4px); }
+.footer-contact-item { display: flex; align-items: center; gap: 12px; color: var(--gray-400); font-size: 0.9rem; padding: 8px 0; }
+.footer-contact-item i { color: var(--teal); width: 18px; text-align: center; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding: 24px 0; color: var(--gray-500); font-size: 0.85rem; }
+.footer-bottom-links { display: flex; gap: 24px; }
+.footer-bottom-links a { color: var(--gray-500); }
+.footer-bottom-links a:hover { color: var(--teal); }
+
+.toast { position: fixed; bottom: 24px; right: 24px; padding: 16px 24px; border-radius: var(--radius); color: white; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 10px; z-index: 9999; animation: slideIn 0.4s ease; }
+.toast-success { background: linear-gradient(135deg, #059669, #10B981); }
+.toast-error { background: linear-gradient(135deg, #DC2626, #EF4444); }
+.toast-info { background: linear-gradient(135deg, var(--blue), #2563EB); }
+@keyframes slideIn { from { transform: translateY(20px) scale(0.95); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+@media (max-width: 1024px) {
+  .login-container { grid-template-columns: 1fr; }
+  .login-info > p { margin: 0 auto 40px; }
+  .login-feature { justify-content: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 768px) {
+  .nav, .header-actions { display: none !important; }
+  .hamburger { display: flex; }
+  .header-inner { height: 60px; }
+  .logo-img { height: 45px; }
+  .login-card { padding: 28px; }
+  .login-info h1 { font-size: 1.8rem; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <div class="announcement-bar">
+    <div class="container">
+      <span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span><span class="announcement-separator">|</span><span>CONECTANDO TALENTOS</span>
+    </div>
+  </div>
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="index.html#candidatos">Para Candidatos</a>
+        <a href="index.html#empresas">Para Empresas</a>
+        <a href="index.html#sobre">Sobre Nós</a>
+        <a href="index.html#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <a href="vagas.html" class="btn btn-outline btn-sm">Encontrar Vaga</a>
+        <a href="contratar.html" class="btn btn-primary btn-sm">Quero Contratar</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="login-section">
+    <div class="login-container">
+      <div class="login-info">
+        <h1>Crie sua <span>conta</span></h1>
+        <p>Cadastre-se para acessar o painel de recrutamento e começar a gerenciar vagas na plataforma Conecta RH.</p>
+        <div class="login-features">
+          <div class="login-feature">
+            <div class="login-feature-icon"><i class="fas fa-plus-circle"></i></div>
+            <div>
+              <h4>Publique vagas</h4>
+              <p>Cadastre oportunidades e alcance milhares de candidatos qualificados.</p>
+            </div>
+          </div>
+          <div class="login-feature">
+            <div class="login-feature-icon"><i class="fas fa-chart-line"></i></div>
+            <div>
+              <h4>Acompanhe processos</h4>
+              <p>Visualize candidaturas e gerencie o funil de recrutamento em tempo real.</p>
+            </div>
+          </div>
+          <div class="login-feature">
+            <div class="login-feature-icon"><i class="fas fa-shield-alt"></i></div>
+            <div>
+              <h4>Segurança garantida</h4>
+              <p>Seus dados estão protegidos e seu acesso será aprovado pelo administrador.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="login-card">
+        <h2>Criar conta de funcionário</h2>
+        <p>Preencha seus dados para solicitar acesso ao painel.</p>
+        <form id="registerForm" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="fullName">Nome completo</label>
+            <input type="text" id="fullName" placeholder="Seu nome completo" required>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail corporativo</label>
+            <input type="email" id="email" placeholder="seunome@empresa.com.br" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Mínimo 6 caracteres" required minlength="6">
+            <div class="password-hint">Mínimo de 6 caracteres</div>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirmar senha</label>
+            <input type="password" id="confirmPassword" placeholder="Repita a senha" required minlength="6">
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            <i class="fas fa-user-plus"></i> Criar conta
+          </button>
+        </form>
+        <div class="login-divider">ou</div>
+        <div class="login-links">
+          <p style="color: var(--gray-400); font-size: 0.9rem;">Já tem uma conta? <a href="funcionarios.html">Entrar</a></p>
+        </div>
+        <div class="login-footer-note">
+          <p><i class="fas fa-info-circle"></i> Sua conta será analisada pelo administrador antes de ser ativada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a>
+          <p>Conectando talentos, empresas e oportunidades.</p>
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Plataforma</h4>
+          <a href="vagas.html">Buscar Vagas</a>
+          <a href="contratar.html">Contratar</a>
+          <a href="funcionarios.html">Área do Funcionário</a>
+        </div>
+        <div class="footer-col">
+          <h4>Empresa</h4>
+          <a href="index.html#sobre">Sobre Nós</a>
+          <a href="index.html#contato">Contato</a>
+          <a href="#">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Suporte</h4>
+          <a href="#">Central de Ajuda</a>
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contato@conectarh.com.br</span></div>
+          <div class="footer-contact-item"><i class="fas fa-phone"></i><span>(11) 99999-9999</span></div>
+          <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Belo Horizonte - MG</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Conecta RH. Todos os direitos reservados.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-client.js"></script>
+  <script>
+    async function handleRegister(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const btn = e.target.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+
+      if (password !== confirmPassword) {
+        showToast('As senhas não coincidem.', true);
+        return;
+      }
+
+      if (password.length < 6) {
+        showToast('A senha deve ter no mínimo 6 caracteres.', true);
+        return;
+      }
+
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Criando conta...';
+      btn.disabled = true;
+
+      try {
+        await db.register(email, password, fullName);
+        showToast('Conta criada com sucesso! Aguarde aprovação do administrador.', false, 'info');
+        btn.innerHTML = '<i class="fas fa-check"></i> Conta criada!';
+        btn.style.background = '#059669';
+        setTimeout(() => { window.location.href = 'funcionarios.html'; }, 3000);
+      } catch (err) {
+        console.error('Erro ao criar conta:', err);
+        let msg = 'Erro ao criar conta.';
+        if (err.message?.includes('already registered')) msg = 'Este e-mail já está cadastrado.';
+        btn.innerHTML = '<i class="fas fa-times"></i> ' + msg;
+        btn.style.background = '#DC2626';
+        setTimeout(() => { btn.innerHTML = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      }
+    }
+
+    function showToast(msg, isError = false, type = 'error') {
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type || (isError ? 'error' : 'success')}`;
+      toast.innerHTML = `<i class="fas fa-${type === 'info' ? 'info-circle' : isError ? 'times-circle' : 'check-circle'}"></i> ${msg}`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
+    }
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
