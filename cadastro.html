@@ -79,6 +79,18 @@ img { max-width: 100%; display: block; }
 .header .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; color: white; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
 .hamburger span { width: 24px; height: 2.5px; background: var(--white); border-radius: 4px; transition: var(--transition); }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-nav { display: none; position: fixed; top: 94px; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,20,50,0.98), rgba(0,40,80,1)); padding: 20px 24px 30px; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.08); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.mobile-nav.active { display: flex; flex-direction: column; gap: 4px; }
+.mobile-nav a { padding: 14px 18px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-weight: 500; font-size: 1rem; transition: var(--transition); }
+.mobile-nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.mobile-nav-actions { display: flex; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+.mobile-nav-actions .btn { flex: 1; }
+.mobile-nav-login { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 14px 18px; border-radius: var(--radius); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 600; font-size: 1rem; }
+.mobile-nav-login:hover { background: rgba(255,255,255,0.2); color: #fff; }
 
 .announcement-bar { background: var(--blue); color: white; padding: 8px 0; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; overflow: hidden; white-space: nowrap; position: fixed; top: 0; left: 0; right: 0; z-index: 1002; }
 .announcement-bar .container { display: flex; gap: 0; animation: marquee 20s linear infinite; width: max-content; }
@@ -129,9 +141,6 @@ img { max-width: 100%; display: block; }
 .footer-brand { }
 .footer-brand .logo { margin-bottom: 16px; }
 .footer-brand p { color: var(--gray-400); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
-.footer-social { display: flex; gap: 12px; }
-.footer-social a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: var(--transition); }
-.footer-social a:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); }
 .footer-col h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
 .footer-col a { display: block; color: var(--gray-400); font-size: 0.9rem; padding: 6px 0; transition: var(--transition-fast); }
 .footer-col a:hover { color: var(--teal); transform: translateX(4px); }
@@ -190,6 +199,19 @@ img { max-width: 100%; display: block; }
       <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </header>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" onclick="closeMobile()">Início</a>
+    <a href="index.html#candidatos" onclick="closeMobile()">Para Candidatos</a>
+    <a href="index.html#empresas" onclick="closeMobile()">Para Empresas</a>
+    <a href="index.html#sobre" onclick="closeMobile()">Sobre Nós</a>
+    <a href="index.html#contato" onclick="closeMobile()">Contato</a>
+    <div class="mobile-nav-actions">
+      <a href="vagas.html" class="btn btn-outline" onclick="closeMobile()">Encontrar Vaga</a>
+      <a href="contratar.html" class="btn btn-primary" onclick="closeMobile()">Quero Contratar</a>
+    </div>
+    <a href="funcionarios.html" class="mobile-nav-login" onclick="closeMobile()"><i class="fas fa-user-lock"></i> Entrar</a>
+  </div>
 
   <section class="login-section">
     <div class="login-container">
@@ -263,10 +285,6 @@ img { max-width: 100%; display: block; }
         <div class="footer-brand">
           <a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a>
           <p>Conectando talentos, empresas e oportunidades.</p>
-          <div class="footer-social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
         </div>
         <div class="footer-col">
           <h4>Plataforma</h4>
@@ -360,6 +378,24 @@ img { max-width: 100%; display: block; }
         header.classList.remove('scrolled');
       }
     });
+
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    if (hamburger && mobileNav) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+      });
+    }
+
+    function closeMobile() {
+      if (hamburger && mobileNav) {
+        hamburger.classList.remove('active');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
   </script>
 </body>
 </html>

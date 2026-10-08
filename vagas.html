@@ -114,11 +114,12 @@ img { max-width: 100%; height: auto; display: block; }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-.mobile-nav { display: none; position: fixed; top: 110px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; padding: 24px 24px 40px; flex-direction: column; gap: 8px; overflow-y: auto; }
+.mobile-nav { display: none; position: fixed; top: 94px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 999; padding: 24px 24px 40px; flex-direction: column; gap: 8px; overflow-y: auto; }
 .mobile-nav.active { display: flex; }
 .mobile-nav a { padding: 16px 20px; border-radius: var(--radius); color: var(--gray-700); font-weight: 500; font-size: 1.15rem; transition: var(--transition); }
 .mobile-nav a:hover { background: var(--teal-soft); color: var(--blue); }
 .mobile-nav .mobile-nav-actions { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.mobile-nav .mobile-nav-login { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 16px 20px; border-radius: var(--radius); background: var(--teal-soft); border: 1px solid rgba(0,102,204,0.15); color: var(--blue); font-weight: 600; font-size: 1.05rem; }
 
 .hero { padding: 160px 0 120px; position: relative; overflow: hidden; min-height: 90vh; display: flex; align-items: center; }
 .hero::before { content: ''; position: absolute; top: -300px; right: -300px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%); border-radius: 50%; pointer-events: none; }
@@ -226,17 +227,6 @@ img { max-width: 100%; height: auto; display: block; }
 .about-text h2 { font-size: 2.25rem; font-weight: 900; color: var(--gray-900); margin-bottom: 24px; line-height: 1.15; letter-spacing: -0.03em; }
 .about-text p { color: var(--gray-500); line-height: 1.85; margin-bottom: 18px; font-size: 1.05rem; }
 
-.testimonials-section { background: var(--teal); }
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.testimonial-card { background: rgba(255,255,255,0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.6); border-radius: var(--radius-xl); padding: 36px; transition: all var(--transition); box-shadow: var(--shadow-sm); }
-.testimonial-card:hover { box-shadow: var(--shadow-xl); transform: translateY(-5px); }
-.testimonial-stars { display: flex; gap: 4px; margin-bottom: 20px; color: #FBBF24; font-size: 0.95rem; }
-.testimonial-text { color: var(--gray-600); font-size: 1rem; line-height: 1.75; margin-bottom: 28px; font-style: italic; }
-.testimonial-author { display: flex; align-items: center; gap: 14px; }
-.testimonial-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--teal-soft) 0%, var(--blue-light) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue); font-size: 0.85rem; flex-shrink: 0; }
-.testimonial-name { font-weight: 700; color: var(--gray-900); font-size: 0.95rem; }
-.testimonial-role { color: var(--gray-500); font-size: 0.825rem; }
-
 .faq-section { background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); }
 .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
 .faq-item { background: var(--white); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); overflow: hidden; transition: all var(--transition); box-shadow: var(--shadow-sm); }
@@ -262,9 +252,6 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-brand .logo { margin-bottom: 18px; color: var(--white); }
 .footer-brand .logo-icon { background: linear-gradient(135deg, var(--teal) 0%, #5DD5C2 100%); }
 .footer-brand p { color: var(--gray-400); font-size: 0.95rem; line-height: 1.75; margin-bottom: 24px; }
-.footer-social { display: flex; gap: 12px; }
-.footer-social a { width: 44px; height: 44px; background: rgba(255,255,255,0.06); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: var(--transition); }
-.footer-social a:hover { background: var(--teal); color: var(--gray-900); transform: translateY(-3px); }
 .footer-col h4 { color: var(--white); font-weight: 700; font-size: 1rem; margin-bottom: 22px; letter-spacing: -0.01em; }
 .footer-col a { display: block; color: var(--gray-400); font-size: 0.9rem; padding: 6px 0; transition: var(--transition); }
 .footer-col a:hover { color: var(--teal); padding-left: 6px; }
@@ -376,7 +363,6 @@ img { max-width: 100%; height: auto; display: block; }
   .benefit-card { padding: 28px 24px; }
   .numbers-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   .number-item h3 { font-size: 2rem; }
-  .testimonials-grid { grid-template-columns: 1fr; }
   .cta-section { padding: 60px 0; }
   .cta-section h2 { font-size: 1.6rem; }
   .cta-section p { font-size: 1rem; }
@@ -467,6 +453,7 @@ img { max-width: 100%; height: auto; display: block; }
   <div class="mobile-nav" id="mobileNav">
     <a href="index.html">Início</a><a href="index.html#candidatos">Para Candidatos</a><a href="index.html#empresas">Para Empresas</a><a href="index.html#sobre">Sobre Nós</a><a href="index.html#contato">Contato</a>
     <div class="mobile-nav-actions"><a href="vagas.html" class="btn btn-outline">Encontrar Vaga</a><a href="contratar.html" class="btn btn-primary">Quero Contratar</a></div>
+    <a href="funcionarios.html" class="mobile-nav-login"><i class="fas fa-user-lock"></i> Entrar</a>
   </div>
   <section class="page-header">
     <div class="container"><h1>Encontre a oportunidade ideal para você</h1><p>Explore centenas de vagas de diferentes áreas e encontre a que combina com seu perfil.</p></div>
@@ -487,11 +474,11 @@ img { max-width: 100%; height: auto; display: block; }
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div class="footer-brand"><a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a><p>Conectando talentos, empresas e oportunidades.</p><div class="footer-social"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
+        <div class="footer-brand"><a href="index.html" class="logo"><img src="logo.png" alt="Conecta RH" class="logo-img"></a><p>Conectando talentos, empresas e oportunidades.</p></div>
         <div class="footer-col"><h4>Empresa</h4><a href="index.html#sobre">Sobre nós</a><a href="index.html#contato">Contato</a></div>
         <div class="footer-col"><h4>Candidatos</h4><a href="vagas.html">Encontrar vagas</a><a href="#">Cadastrar currículo</a></div>
         <div class="footer-col"><h4>Empresas</h4><a href="contratar.html">Quero contratar</a><a href="contratar.html">Solicitar recrutamento</a></div>
-        <div class="footer-col"><h4>Contato</h4><div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span>+55 31 7578-7604</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contato@conectarh.com.br</span></div><div class="footer-contact-item"><i class="fab fa-instagram"></i><span>@conectarh</span></div><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Belo Horizonte - MG</span></div></div>
+        <div class="footer-col"><h4>Contato</h4><div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span>+55 31 7578-7604</span></div><div class="footer-contact-item"><i class="fas fa-envelope"></i><span>contato@conectarh.com.br</span></div><div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Belo Horizonte - MG</span></div></div>
       </div>
       <div class="footer-bottom"><span>© 2026 Conecta RH. Todos os direitos reservados.</span><div class="footer-bottom-links"><a href="#">Política de Privacidade</a><a href="#">Termos de Uso</a></div></div>
     </div>

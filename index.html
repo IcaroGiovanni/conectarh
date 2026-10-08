@@ -102,13 +102,18 @@ img { max-width: 100%; height: auto; display: block; }
 .header-actions { display: flex; align-items: center; gap: 12px; }
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
 .hamburger span { width: 24px; height: 2.5px; background: var(--white); border-radius: 4px; transition: var(--transition); }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-.mobile-nav { display: none; position: fixed; top: 110px; left: 0; right: 0; background: linear-gradient(180deg, rgba(0,20,50,0.98), rgba(0,40,80,1)); padding: 20px 24px 30px; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.mobile-nav { display: none; position: fixed; top: 94px; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,20,50,0.98), rgba(0,40,80,1)); padding: 20px 24px 30px; z-index: 999; border-bottom: 1px solid rgba(255,255,255,0.08); overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .mobile-nav.active { display: flex; flex-direction: column; gap: 4px; }
 .mobile-nav a { padding: 14px 18px; border-radius: var(--radius); color: rgba(255,255,255,0.8); font-weight: 500; font-size: 1rem; transition: var(--transition-fast); }
 .mobile-nav a:hover { background: rgba(255,255,255,0.1); color: #fff; }
 .mobile-nav-actions { display: flex; gap: 12px; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
 .mobile-nav-actions .btn { flex: 1; }
+.mobile-nav-login { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 14px 18px; border-radius: var(--radius); background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff; font-weight: 600; font-size: 1rem; }
+.mobile-nav-login:hover { background: rgba(255,255,255,0.2); color: #fff; }
 
 .hero { padding: 180px 0 100px; min-height: 90vh; display: flex; align-items: center; position: relative; overflow: hidden; }
 .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
@@ -196,16 +201,6 @@ img { max-width: 100%; height: auto; display: block; }
 .team-creds { display: flex; flex-wrap: wrap; gap: 10px; }
 .team-cred { padding: 8px 16px; background: rgba(0,113,214,0.1); border: 1px solid rgba(0,113,214,0.2); border-radius: var(--radius-full); font-size: 0.78rem; color: rgba(255,255,255,0.7); font-weight: 500; }
 
-.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
-.testimonial-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-xl); padding: 32px; transition: var(--transition); }
-.testimonial-card:hover { transform: translateY(-4px); border-color: rgba(0,113,214,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
-.testimonial-stars { display: flex; gap: 3px; margin-bottom: 16px; color: #FBBF24; font-size: 0.9rem; }
-.testimonial-text { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
-.testimonial-author { display: flex; align-items: center; gap: 14px; }
-.testimonial-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, rgba(0,113,214,0.3), rgba(0,113,214,0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: var(--blue); font-size: 0.85rem; flex-shrink: 0; }
-.testimonial-name { font-weight: 700; color: var(--white); font-size: 0.9rem; }
-.testimonial-role { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-
 .faq-list { max-width: 700px; margin: 0 auto; }
 .faq-item { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); margin-bottom: 12px; transition: var(--transition); }
 .faq-item.active { border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,113,214,0.15); }
@@ -226,9 +221,6 @@ img { max-width: 100%; height: auto; display: block; }
 .footer { background: #000E1A; color: var(--white); padding: 64px 0 0; border-top: 1px solid rgba(255,255,255,0.05); }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .footer-brand p { color: rgba(255,255,255,0.4); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
-.footer-social { display: flex; gap: 12px; }
-.footer-social a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); transition: var(--transition); }
-.footer-social a:hover { background: var(--blue); color: var(--white); transform: translateY(-3px); }
 .footer-col h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 20px; color: var(--white); }
 .footer-col a { display: block; color: rgba(255,255,255,0.4); font-size: 0.9rem; padding: 6px 0; transition: var(--transition-fast); }
 .footer-col a:hover { color: var(--blue); padding-left: 6px; }
@@ -265,7 +257,6 @@ img { max-width: 100%; height: auto; display: block; }
   .hero-cta { flex-direction: column; align-items: center; gap: 12px; margin-bottom: 36px; }
   .hero-cta .btn { width: 100%; max-width: 280px; padding: 14px 20px; }
   .jobs-grid { grid-template-columns: 1fr; }
-  .testimonials-grid { grid-template-columns: 1fr; }
   .search-bar { flex-direction: column; }
   .filters-bar { flex-direction: column; align-items: stretch; }
   .timeline::before { left: 24px; }
@@ -274,6 +265,14 @@ img { max-width: 100%; height: auto; display: block; }
   .timeline-item:nth-child(even) .timeline-content { text-align: left; padding-left: 70px; padding-right: 0; }
   .timeline-number { left: 24px; }
   .cta-section h2 { font-size: 1.5rem; }
+  .team-card { grid-template-columns: 1fr; gap: 28px; padding: 32px 22px; text-align: center; }
+  .team-avatar { width: 100%; max-width: 220px; height: auto; margin: 0 auto; }
+  .team-avatar i { font-size: 4rem; }
+  .team-info h3 { font-size: 1.4rem; }
+  .team-role { font-size: 0.95rem; margin-bottom: 16px; }
+  .team-bio { text-align: left; font-size: 0.9rem; margin-bottom: 20px; }
+  .team-creds { justify-content: center; gap: 8px; }
+  .team-cred { padding: 7px 14px; font-size: 0.72rem; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
 }
   </style>
@@ -317,6 +316,7 @@ img { max-width: 100%; height: auto; display: block; }
       <a href="vagas.html" class="btn btn-outline" onclick="closeMobile()">Encontrar Vaga</a>
       <a href="contratar.html" class="btn btn-primary" onclick="closeMobile()">Quero Contratar</a>
     </div>
+    <a href="funcionarios.html" class="mobile-nav-login" onclick="closeMobile()"><i class="fas fa-user-lock"></i> Entrar</a>
   </div>
 
   <!-- HERO -->
@@ -514,15 +514,6 @@ img { max-width: 100%; height: auto; display: block; }
     </div>
   </section>
 
-  <!-- DEPOIMENTOS -->
-  <section class="section" id="depoimentos">
-    <div class="container">
-      <h2 class="section-title text-center fade-in">Quem se conecta com a gente, recomenda.</h2>
-      <p class="section-subtitle text-center fade-in">Veja o que dizem quem já encontrou oportunidades ou profissionais conosco.</p>
-      <div class="testimonials-grid" id="testimonialsGrid"></div>
-    </div>
-  </section>
-
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container">
@@ -553,10 +544,6 @@ img { max-width: 100%; height: auto; display: block; }
             <img src="logo.png" alt="Conecta RH" class="logo-img">
           </a>
           <p>Conectando talentos, empresas e oportunidades.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          </div>
         </div>
         <div class="footer-col">
           <h4>Empresa</h4>
@@ -582,10 +569,6 @@ img { max-width: 100%; height: auto; display: block; }
           <div class="footer-contact-item">
             <i class="fas fa-envelope"></i>
             <span>contato@conectarh.com.br</span>
-          </div>
-          <div class="footer-contact-item">
-            <i class="fab fa-instagram"></i>
-            <span>@conectarh</span>
           </div>
           <div class="footer-contact-item">
             <i class="fas fa-map-marker-alt"></i>
@@ -648,35 +631,15 @@ img { max-width: 100%; height: auto; display: block; }
 
     async function loadIndexData() {
       try {
-        const [jobs, testimonials, faq] = await Promise.all([
+        const [jobs, faq] = await Promise.all([
           db.getJobs({ status: 'active', featured: true }),
-          db.getTestimonials(),
           db.getFaqItems()
         ]);
         allJobs = jobs;
-        renderTestimonials(testimonials);
         renderFaq(faq);
       } catch (err) {
         console.error('Erro ao carregar dados:', err);
       }
-    }
-
-    function renderTestimonials(testimonials) {
-      const grid = document.getElementById('testimonialsGrid');
-      if (!grid || !testimonials.length) return;
-      grid.innerHTML = testimonials.map(t => {
-        const initials = t.author_name.split(' ').map(w => w[0]).join('').substring(0, 2).toUpperCase();
-        const stars = '&#9733;'.repeat(t.rating) + '&#9734;'.repeat(5 - t.rating);
-        return `<div class="testimonial-card fade-in">
-          <div class="testimonial-stars">${stars}</div>
-          <p class="testimonial-text">"${t.content}"</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar">${initials}</div>
-            <div><div class="testimonial-name">${t.author_name}</div><div class="testimonial-role">${t.author_role || ''} ${t.author_company ? '- ' + t.author_company : ''}</div></div>
-          </div>
-        </div>`;
-      }).join('');
-      grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     }
 
     function renderFaq(items) {
