@@ -313,7 +313,7 @@ INSERT INTO faq_items (question, answer, category, sort_order) VALUES
 ('Vocês fazem triagem dos candidatos?', 'Sim! Nossa inteligência artificial e equipe realizam a triagem inicial, apresentando apenas os candidatos mais qualificados para sua vaga.', 'empresa', 7),
 ('É possível contratar os serviços de recrutamento e seleção?', 'Sim! Oferecemos serviço completo de R&S com equipe especializada. Entre em contato para um orçamento personalizado.', 'empresa', 8),
 ('Quais são as formas de pagamento?', 'Aceitamos cartão de crédito, boleto bancário e PIX. Planos anuais possuem desconto especial.', 'empresa', 9),
-('Como entro em contato com o suporte?', 'Você pode nos contatar pelo e-mail suporte@conectarh.com.br ou pelo WhatsApp +55 31 7578-7604. Nosso horário de atendimento é de segunda a sexta, das 8h às 18h.', 'geral', 10);
+('Como entro em contato com o suporte?', 'Você pode nos contatar pelo e-mail elianaclaus.conectarh@gmail.com ou pelo WhatsApp +55 31 7578-7604. Nosso horário de atendimento é de segunda a sexta, das 8h às 18h.', 'geral', 10);
 
 -- =============================================
 -- 10. STORAGE BUCKET
